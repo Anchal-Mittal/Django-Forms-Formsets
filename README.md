@@ -25,3 +25,4 @@ Django Forms (and Formsets) make collecting & validating data easy and secure fo
 
 [12 - Form Field Label & Widgets](../../tree/31ab250b72941c54ef959e4210769a272c5deee7)
 
+[13 - Model Form](../../tree/9dc75a6cdc8bb5eabb93a6bdfbc08f4a5f54cf30)
