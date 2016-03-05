@@ -31,28 +31,28 @@ class PostModelForm(forms.ModelForm):
             "user", 
             "title", 
             "slug", 
-            "image"
+            "image",
             ]
         #exclude = ["height_field", "width_field"]
 
     def clean_title(self, *args, **kwargs):
         title = self.cleaned_data.get("title")
-        print title
+        # print title
         #raise forms.ValidationError("Nope!")
         return title
 
 
-    def save(self, commit=True, *args, **kwargs):
-        obj = super(PostModelForm, self).save(commit=False, *args, **kwargs)
-        #
-        #obj.title = "New title"
-        obj.publish = "2016-10-01"
-        obj.content = "Coming soon"
-        # from django.utils.text import slugify
-        # obj.title = slugify(obj.title)
-        if commit:
-            obj.save()
-        return obj
+    # def save(self, commit=True, *args, **kwargs):
+    #     obj = super(PostModelForm, self).save(commit=False, *args, **kwargs)
+    #     #
+    #     #obj.title = "New title"
+    #     obj.publish = "2016-10-01"
+    #     obj.content = "Coming soon"
+    #     # from django.utils.text import slugify
+    #     # obj.title = slugify(obj.title)
+    #     if commit:
+    #         obj.save()
+    #     return obj
 
 
 
