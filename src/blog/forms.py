@@ -3,28 +3,15 @@ from django import forms
 
 from .models import Post
 
-"""
-user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
-title = models.CharField(max_length=120)
-slug = models.SlugField(unique=True)
-image = models.FileField(upload_to=upload_location, 
-        null=True, 
-        blank=True, 
-        # width_field="width_field", 
-        # height_field="height_field"
-        )
-        
-height_field = models.IntegerField(default=0)
-width_field = models.IntegerField(default=0)
-content = models.TextField()
-draft = models.BooleanField(default=False)
-publish = models.DateField(auto_now=False, auto_now_add=False)
-updated = models.DateTimeField(auto_now=True, auto_now_add=False)
-timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
-"""
-
 class PostModelForm(forms.ModelForm):
-    #date_field = forms.DateField(initial="2010-11-20", widget=forms.SelectDateWidget(years=YEARS))
+    # title = forms.CharField(
+    #         max_length=120, 
+    #         label='Some field', 
+    #         help_text='some help text', 
+    #         error_messages={
+    #             "required": "The title field is required."
+    #         }
+    #     )
     class Meta:
         model = Post
         fields = [
@@ -33,28 +20,43 @@ class PostModelForm(forms.ModelForm):
             "slug", 
             "image",
             ]
-        #exclude = ["height_field", "width_field"]
+        labels = {
+            "title": "this is title labe",
+            "slug": "This is slug"
+        }
+        help_text = {
+            "title": "this is title labe",
+            "slug": "This is slug"
+        }
+        error_messages = {
+            # "title": {
+            #     "max_length": "This title is too long.",
+            #     "required": "The title field is required."
+            # },
+             "slug": {
+                "max_length": "This title is too long.",
+                "required": "The slug field is required.",
+                #"unique": "The slug field must be unique."
+            },
+        }
 
-    def clean_title(self, *args, **kwargs):
-        title = self.cleaned_data.get("title")
-        # print title
-        #raise forms.ValidationError("Nope!")
-        return title
+    def __init__(self, *args, **kwargs):
+        super(PostModelForm, self).__init__(*args, **kwargs)
+        self.fields["title"].widget = forms.Textarea()
+        self.fields["title"].error_messages = {
+                "max_length": "This title is too long.",
+                "required": "The title field is required."
+            }
+        self.fields["slug"].error_messages = {
+                "max_length": "This title is too long.",
+                "required": "The slug field is required.",
+                "unique": "The slug field must be unique."
+            }
 
-
-    # def save(self, commit=True, *args, **kwargs):
-    #     obj = super(PostModelForm, self).save(commit=False, *args, **kwargs)
-    #     #
-    #     #obj.title = "New title"
-    #     obj.publish = "2016-10-01"
-    #     obj.content = "Coming soon"
-    #     # from django.utils.text import slugify
-    #     # obj.title = slugify(obj.title)
-    #     if commit:
-    #         obj.save()
-    #     return obj
-
-
+        for field in self.fields.values():
+            field.error_messages = {
+                'required': "You know, {fieldname} is required".format(fieldname=field.label),
+            }
 
 
 
