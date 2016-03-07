@@ -12,6 +12,18 @@ def home(request):
         obj.title = "Some random title"
         obj.publish = timezone.now()
         obj.save()
+    if form.has_error:
+        # print(form.errors.as_json())
+        # print(form.errors.as_text())
+        data = form.errors.iteritems()
+        for key,value in data:
+            print(dir(value))
+            error_str = "{field}: {error}".format(
+                    field=key, 
+                    error=value.as_text()
+                    )
+            print(error_str)
+        print(form.non_field_errors)
     # initial_dict = {
     #     #"some_text": "Text",
     #     "boolean": True,
