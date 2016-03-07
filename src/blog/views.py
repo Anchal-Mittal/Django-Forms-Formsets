@@ -17,13 +17,13 @@ def home(request):
         # print(form.errors.as_text())
         data = form.errors.iteritems()
         for key,value in data:
-            print(dir(value))
+            #print(dir(value))
             error_str = "{field}: {error}".format(
                     field=key, 
                     error=value.as_text()
                     )
             print(error_str)
-        print(form.non_field_errors)
+        #print(form.non_field_errors())
     # initial_dict = {
     #     #"some_text": "Text",
     #     "boolean": True,

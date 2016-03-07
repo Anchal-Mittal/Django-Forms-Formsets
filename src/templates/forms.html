@@ -33,7 +33,23 @@
       </form> -->
     
     <form method='POST' action=''>{% csrf_token %}
-      {{ form.as_p }}
+      {% if form.errors %}
+        {% for key, value in form.errors.itervalues %}
+            <p>{{ key }}: {{ value.as_text }}</p>
+        {% endfor %}
+      {% endif %}
+
+      {{ form.non_field_errors }}
+      <p>{{ form.user }}</p>
+
+      <p {% if form.title.errors %} class='some-field-error' {% endif %}><label for="{{ form.title.id_for_label }}">{{ form.title.label }}:</label> {{ form.title }} 
+         {% if form.title.abc %}
+        <div style='color:red'>Errors with title are: {{ form.title.errors.as_text }}</div>
+        {% endif %}
+
+      </p>
+      <p>{{ form.slug }}</p>
+      <p>{{ form.image }}</p>
       <input type='submit' value='Submit' />
         </form>
     </div>
