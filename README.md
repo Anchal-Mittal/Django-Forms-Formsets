@@ -33,3 +33,6 @@ Django Forms (and Formsets) make collecting & validating data easy and secure fo
 
 [16 - Custom Error Messages](../../tree/fbb43e4130e793f98793618413e0f201a0ecc535)
 
+[17 - Rendering Form Errors in a View](../../tree/85a2659a6de0e627decb049118fcdffb6bc5a148)
+
+[18 - Rendering Fields Manually in Templates](../../tree/2d22724670661e057b4eb522edc8acc0b23a171f)
