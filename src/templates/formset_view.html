@@ -1,23 +1,55 @@
 {% extends "base.html" %}
 
 
-{% block content %}
-<h1>Formset View</h1>
 
+
+{% block styles %}
+<style>
+#empty-row {
+    display: none
+}
+.form-row {
+    border-bottom: 1px solid #333;
+    margin: 20px 0px;
+    padding: 20px 10px;
+}
+
+.new-parent-row {
+    background-color: rgb(75, 186, 228);
+}
+    
+</style>
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class='col-sm-6 col-sm-offset-3'>
+    <h1>Formset View</h1>
 <form action='' method='POST'>
     {% csrf_token %}
-    <input type='submit' value='Submit' />
-
+    <div class='btn-group'>
+        <input class='btn btn-primary' type='submit' value='Save' /> 
+        <a class='btn btn-default' href='/'>Cancel</a>
+    </div>
+    <br/>
     {{ formset.management_form }}
     {% for form in formset %}
-    <div>
+    <div class='form-row'>
             {{ form.as_p }}
-            <hr/>
-
+           
     </div>
     {% endfor %}
 
-<input type='submit' value='Submit' />
+    <div class='btn-group'>
+        <input class='btn btn-primary' type='submit' value='Save' /> 
+        <a class='btn btn-default' href='/'>Cancel</a>
+    </div>
 </form>
+</div>
+<br/>
+<br/>
+
 
 {% endblock %}
