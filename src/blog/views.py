@@ -49,3 +49,7 @@ def home(request):
     #     print(request.GET)
 
     return render(request, "forms.html", {"form": form})
+
+
+
+
