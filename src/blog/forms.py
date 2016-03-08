@@ -93,7 +93,7 @@ class TestForm(forms.Form):
 
     def __init__(self, user=None, *args, **kwargs):
         super(TestForm, self).__init__(*args, **kwargs)
-        print(user)
+        #print(user)
         if user:
             self.fields["some_text"].initial = user.username
 
