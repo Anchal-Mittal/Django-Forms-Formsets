@@ -1,8 +1,8 @@
-![Django Forms & Formsets](https://cfe-static.s3.amazonaws.com/media/django-forms-formsets/images/django_forms_and_formsets.png)
+![Django Forms & Formsets](https://cfe-static.s3.amazonaws.com/media/django-forms-formsets/images/django_forms_and_formsets_unleashed.png)
 
 # Django Forms & Formsets
 
-Django Forms (and Formsets) make collecting & validating data easy and secure for your web applications.
+Django Forms (and Formsets) make collecting & validating data easy and secure for your web applications. Your Reference for Django forms.
 
 
 ## Lecture Code
