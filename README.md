@@ -45,9 +45,9 @@ Django Forms (and Formsets) make collecting & validating data easy and secure fo
 
 [22 - ModelForm and Querysets in Model Formsets](../../tree/2c6363984ee84b2856e8d94f5b05979301643ceb)
 
-[23 [Start] - Dynamic New Form in Formset with jQuery](6b7882e2963ff09916db5f3ce317e048aebdf819)
+[23 [Start] - Dynamic New Form in Formset with jQuery](../../tree/6b7882e2963ff09916db5f3ce317e048aebdf819)
 
-[23 - Dynamic New Form in Formset with jQuery](316ce9f2dad11591ccb146bd1b012d149deb2163)
+[23 - Dynamic New Form in Formset with jQuery](../../tree/316ce9f2dad11591ccb146bd1b012d149deb2163)
 
 
 
